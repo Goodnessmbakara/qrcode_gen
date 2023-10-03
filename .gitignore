@@ -1,0 +1,5 @@
+.qrcode_gen
+venv
+env
+migrations
+db.sqlite3
