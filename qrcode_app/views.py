@@ -39,6 +39,10 @@ class QRCodeDataView(View):
 
             img_url = request.build_absolute_uri(instance.qr_code.url.lstrip('/'))
 
+            if not (instance.data.startswith('http://') or instance.data.startswith('https://')):
+                # Prepend http:// to instance.data
+                instance.data = 'https://' + instance.data
+
             return render(request, 'qrcode_image.html', {'img_url': img_url, 'data_url': instance.data, 'qr_code_name': unique_name })
 
         return render(request, 'qrcode_data_form.html', {'form': form})
