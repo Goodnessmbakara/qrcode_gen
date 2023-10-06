@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Request API Key</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <h1 class="text-center mt-5">Request API Key</h1>
+                <form id="api-key-request-form" class="mt-5">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <p class="text-center mt-3">Please contact us at <a href="mailto:amicablembakara50@gmail.com">amicablembakara50@gmail.com</a> for further enquiries or questions.</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script>
+    $('#api-key-request-form').on('submit', function(e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: '/api-key-request/', // The endpoint where you handle the form submission
+            type: 'post',
+            data: {
+                email: $('#email').val()
+            },
+            success: function() {
+                alert('Your request has been received. Please wait for us to contact you.');
+            },
+            error: function() {
+                alert('An error occurred. Please try again.');
+            }
+        });
+    });
+    </script>
+</body>
+</html>

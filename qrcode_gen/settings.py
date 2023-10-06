@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'qrcode_app',
-    'rest_framework'
+    'rest_framework',
+    "rest_framework_api_key",
     
 ]
 

@@ -1,0 +1,42 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your QR Code</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-color: #f8f9fa;
+        }
+        img {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var img = document.getElementById("qr-code-img");
+            var dataUrl = "{{ data_url }}";
+            img.onclick = function() {
+                window.location.href = dataUrl;
+            };
+        };
+    </script>
+</head>
+<body>
+    <img id="qr-code-img" src="{{ img_url }}" alt="QR Code">
+</body>
+</html>

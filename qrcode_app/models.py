@@ -1,4 +1,12 @@
 from django.db import models
+from rest_framework_api_key.models import AbstractAPIKey
+
+class IPAddressAPIKey(AbstractAPIKey):
+    ip_address = models.GenericIPAddressField()
+
+    class Meta(AbstractAPIKey.Meta):
+        verbose_name = "IP Address API key"
+        verbose_name_plural = "IP Address API keys"
 
 class QRCodeData(models.Model):
     data = models.TextField()

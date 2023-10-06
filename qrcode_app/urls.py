@@ -1,14 +1,14 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from .views import QRCodeDataViewSet
+from django.urls import path
 
-router = DefaultRouter()
-router.register(r'', QRCodeDataViewSet)
+from .views import QRCodeDataView
+
+
 
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('', QRCodeDataView.as_view(), name='qrcode_data'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
