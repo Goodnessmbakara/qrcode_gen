@@ -1,5 +1,7 @@
 .qrcode_gen
 venv
+.venv
 env
 migrations
+__pycache__
 db.sqlite3
