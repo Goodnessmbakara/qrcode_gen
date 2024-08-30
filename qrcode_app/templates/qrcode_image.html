@@ -1,27 +1,50 @@
-{% load static%}
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your QR Code</title>
     <style>
+        /* Full-page centering with a subtle gradient background */
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            flex-direction: column;
-            background-color: #f8f9fa;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #e0f7fa, #ffffff);
         }
+
+        /* Style for the QR code image */
         img {
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: 220px;
             margin-bottom: 20px;
+            border: 5px solid #007bff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
+        /* Hover effect on the QR code image */
+        img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Style for the download link */
         a {
-            text-decoration: none;
+            font-size: 18px;
             color: #007bff;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
+
+        /* Hover effect on the link */
         a:hover {
             color: #0056b3;
         }
@@ -38,5 +61,6 @@
 </head>
 <body>
     <img id="qr-code-img" src="{{ img_url }}" alt="QR Code">
+    <a href="{{ img_url }}" download="{{ qr_code_name }}">Download QR Code</a>
 </body>
 </html>
