@@ -9,7 +9,7 @@ from django.db import models
 #         verbose_name_plural = "IP Address API keys"
 
 class QRCodeData(models.Model):
-    data = models.TextField()
+    qr_data = models.TextField()
     qr_code = models.ImageField(upload_to='qrcodes/', blank=True, null=True)
 
     def __str__(self):

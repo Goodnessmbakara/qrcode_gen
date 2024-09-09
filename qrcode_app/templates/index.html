@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}QRocket - Generate QR Code in Seconds{% endblock %}
+
+{% block content %}
+<style>
+    .hero {
+        background-color: #f9f9f9;
+        padding: 40px;
+        text-align: center;
+    }
+    .hero-content h1 {
+        color: #333;
+    }
+    .hero-content p {
+        font-size: 18px;
+        color: #666;
+    }
+    form {
+        margin-top: 20px;
+    }
+    input[type="text"] {
+        width: calc(100% - 24px);
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    .error {
+        color: red;
+        font-size: 14px;
+    }
+    .qr-code img {
+        margin-top: 20px;
+    }
+    .features {
+        background-color: #e9ecef;
+        padding: 20px;
+        text-align: center;
+    }
+    .feature-item {
+        display: inline-block;
+        width: 30%;
+        padding: 10px;
+    }
+</style>
+<section class="hero">
+    <div class="hero-content">
+        <h1>Generate Your QR Code in Seconds with QRocket 🚀</h1>
+        <p>Fast, reliable, and easy-to-use QR code generator for businesses, developers, and general users. Try it now!</p>
+        <form method="POST" action="{% url 'generate_qr' %}">
+            {% csrf_token %}
+            <input type="text" name="qr_data" placeholder="Enter your text or URL" required>
+            {% if form.errors %}
+                <div class="error">{{ form.errors.qr_data }}</div>
+            {% endif %}
+            <button type="submit">Generate QR Code</button>
+        </form>
+        {% if qr_code_url %}
+        <div class="qr-code">
+            <h3>Your Generated QR Code:</h3>
+            <img src="{{ qr_code_url }}" alt="QR Code">
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<section class="features">
+    <h2>Why Use QRocket?</h2>
+    <div class="feature-list">
+        <div class="feature-item">
+            <h3>Fast 🚀</h3>
+            <p>Generate QR codes quickly with just a few clicks.</p>
+        </div>
+        <div class="feature-item">
+            <h3>Reliable</h3>
+            <p>Your generated QR codes are optimized for easy scanning.</p>
+        </div>
+        <div class="feature-item">
+            <h3>Customizable</h3>
+            <p>Input your desired data and get a unique QR code instantly.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

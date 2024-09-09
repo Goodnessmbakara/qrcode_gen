@@ -1,66 +1,41 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your QR Code</title>
-    <style>
-        /* Full-page centering with a subtle gradient background */
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #e0f7fa, #ffffff);
-        }
+{% extends 'base.html' %}
 
-        /* Style for the QR code image */
-        img {
-            width: 220px;
-            height: 220px;
-            margin-bottom: 20px;
-            border: 5px solid #007bff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+{% block title %}Your QR Code{% endblock %}
 
-        /* Hover effect on the QR code image */
-        img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Style for the download link */
-        a {
-            font-size: 18px;
-            color: #007bff;
-            font-weight: bold;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        /* Hover effect on the link */
-        a:hover {
-            color: #0056b3;
-        }
-    </style>
-    <script>
-        window.onload = function() {
-            var img = document.getElementById("qr-code-img");
-            var dataUrl = "{{ data_url }}";
-            img.onclick = function() {
-                window.location.href = dataUrl;
-            };
-        };
-    </script>
-</head>
-<body>
-    <img id="qr-code-img" src="{{ img_url }}" alt="QR Code">
-    <a href="{{ img_url }}" download="{{ qr_code_name }}">Download QR Code</a>
-</body>
-</html>
+{% block content %}
+<style>
+    /* Center the QR code and the download link */
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(135deg, #e0f7fa, #ffffff);
+        font-family: 'Arial', sans-serif;
+    }
+    img {
+        max-width: 300px;
+        border: 5px solid #007bff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        margin-bottom: 20px;
+    }
+    a {
+        font-size: 18px;
+        color: #007bff;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    a:hover {
+        color: #0056b3;
+    }
+</style>
+<div>
+    <img src="{{ img_url }}" alt="Generated QR Code">
+    <a href="{{ img_url }}" download="QRCode.png">Download QR Code</a>
+</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}About QRocket - The Story Behind the App{% endblock %}
+
+{% block content %}
+<style>
+    .about .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .about h1, .about h2 {
+        color: #333;
+    }
+    .about p {
+        line-height: 1.6;
+        color: #666;
+    }
+    .about ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    .about ul li {
+        padding: 10px 0;
+    }
+    .about a {
+        color: #2a7ae2;
+        text-decoration: none;
+    }
+    .about a:hover {
+        text-decoration: underline;
+    }
+</style>
+<section class="about">
+    <div class="container">
+        <h1>About QRocket</h1>
+        <p>QRocket is a simple and efficient QR code generator built for businesses, developers, and everyday users. Whether you're sharing a link, contact info, or any other kind of data, QRocket makes it quick and easy.</p>
+        
+        <h2>The Idea Behind QRocket</h2>
+        <p>I’ve always loved fiddling with computers growing up, spending most of my time exploring how they work. One day, I stumbled upon coding tutorials on YouTube, and that was when my interest in development sparked. I wanted to build something practical that anyone can use—hence, QRocket was born!</p>
+        <p>After doing some research, I joined the ALX programme to sharpen my skills, and this is the first project I’m proud to have worked on. I applied the knowledge I’ve gained so far, using languages and frameworks like Python and Django to bring QRocket to life.</p>
+
+        <h2>Developer’s Journey</h2>
+        <p>This project, QRocket, is my first major undertaking as a developer. Although I haven’t worked on any previous projects, I’ve put my heart and soul into this one. I contributed mainly by implementing the core backend functionality using the Django framework, allowing users to generate QR codes seamlessly.</p>
+
+        <h2>Follow My Journey</h2>
+        <p>If you'd like to follow my progress as a developer, you can connect with me on:</p>
+        <ul>
+            <li><a href="https://www.facebook.com/melusimhlanga" target="_blank">Facebook</a></li>
+            <li><a href="https://www.instagram.com/melusim18" target="_blank">Instagram</a></li>
+            <li><a href="https://www.twitter.com/melusim18" target="_blank">Twitter</a></li>
+        </ul>
+
+        <h2>GitHub Repository</h2>
+        <p>You can explore the code behind this project on <a href="https://github.com/melm18/qrcode_gen" target="_blank">GitHub</a>.</p>
+    </div>
+</section>
+{% endblock %}

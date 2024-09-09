@@ -1,0 +1,145 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffc107;
+}
+
+/* Main Content Styles */
+section.landing {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #ffffff;
+}
+
+section.landing h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+section.landing p {
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.qr-form {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.qr-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.qr-form button {
+    background-color: #ffc107;
+    color: #343a40;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.qr-form button:hover {
+    background-color: #e0a800;
+}
+
+/* About Page Styles */
+section.about {
+    padding: 50px 20px;
+}
+
+section.about h1, section.about h2 {
+    color: #343a40;
+}
+
+section.about p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer a {
+    color: #ffc107;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    section.landing h1 {
+        font-size: 36px;
+    }
+
+    .qr-form {
+        width: 100%;
+    }
+}
